@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "minido-app",
+  "productName": "Minido",
   "version": "0.1.0",
   "identifier": "com.minido.app",
   "build": {
@@ -34,6 +34,9 @@
     }
   },
   "bundle": {
+    "icon": [
+      "icons/icon.icns"
+    ],
     "active": true,
     "targets": "all",
     "resources": [
