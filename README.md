@@ -1,8 +1,5 @@
 # Minido App
 
-<!-- Add your app screenshot here -->
-<!-- ![Minido app](public/screenshot.png) -->
-
 **Just a place to add tasks and free your mind.**
 
 <video src="demo.mp4" autoplay></video>
