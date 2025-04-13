@@ -2,7 +2,7 @@
 
 **Just a place to add tasks and free your mind.**
 
-<video src="https://github.com/thiagomv-dev/minido-app/raw/refs/heads/main/demo.mp4" autoplay></video>
+![Minido Demo](https://github.com/thiagomv-dev/minido-app/raw/refs/heads/main/demo.mp4)
 
 ## Download
 
