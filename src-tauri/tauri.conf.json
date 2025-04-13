@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "do-things-app",
+  "productName": "minimal-todo-app",
   "version": "0.1.0",
-  "identifier": "com.do-things-app.app",
+  "identifier": "com.minimal-todo-app.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "macOSPrivateApi": true,
     "windows": [
       {
-        "title": "do-things-app",
+        "title": "minimal-todo-app",
         "width": 280,
         "height": 354,
         "resizable": false,
