@@ -39,15 +39,3 @@ Contributions are welcome! Here's how to get started:
    ```bash
    npm run tauri dev
    ```
-
-## Technology Stack
-
-- [React](https://reactjs.org/) - UI library
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tauri](https://tauri.app/) - Desktop app framework
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Motion](https://motion.dev/) - Animations
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
