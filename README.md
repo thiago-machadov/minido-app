@@ -8,7 +8,7 @@
 
 Download the latest version for macOS:
 
-[Download Minido (.dmg)](https://github.com/thiagomv-dev/minido-app/releases/latest/download/minido-app.dmg)
+[Download Minido (.dmg)](https://github.com/thiagomv-dev/minido-app/releases/latest/download/Minido_latest_aarch64.dmg)
 
 ## Contributing
 
