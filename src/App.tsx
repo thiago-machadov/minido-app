@@ -1,13 +1,14 @@
+import { Eye, EyeClosed } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { CreatedTask } from "./components/created-task";
 import { NewTask } from "./components/new-task";
-import { Task } from "./types";
+import { useTasks } from "./hooks/use-tasks";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [hideCompletedTasks, setHideCompletedTasks] = useState(false);
+  const { tasks, setTasks, hideCompletedTasks, setHideCompletedTasks } =
+    useTasks();
 
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,24 +41,31 @@ function App() {
   return (
     <div
       ref={containerRef}
-      className="relative flex flex-col overflow-hidden rounded-[10px] bg-border-gradient p-[1.5px] w-[280px] h-[354px]"
+      className="relative flex flex-col overflow-hidden rounded-[10px] bg-border-gradient p-[1.5px] w-[550] h-[450px]"
       style={gradientStyle}
     >
-      <div className="bg-gray-2/95 w-full h-full flex rounded-[9px] flex-col gap-3 py-4 px-5">
+      <div className="bg-gray-2/95 w-full h-full flex rounded-[9px] flex-col gap-3 py-4">
         <NewTask setTasks={setTasks} />
-        <AnimatePresence initial={false}>
-          {tasks.map((task) =>
-            hideCompletedTasks && task.completed ? null : (
-              <CreatedTask key={task.id} task={task} setTasks={setTasks} />
-            )
-          )}
-        </AnimatePresence>
+        <div className="scrollbar-thin flex flex-col gap-3 overflow-y-auto w-full h-full">
+          <AnimatePresence initial={false}>
+            {tasks.map((task) =>
+              hideCompletedTasks && task.completed ? null : (
+                <CreatedTask key={task.id} task={task} setTasks={setTasks} />
+              )
+            )}
+          </AnimatePresence>
+        </div>
       </div>
       <button
         onClick={() => setHideCompletedTasks(!hideCompletedTasks)}
-        className="hover:scale-105 transition-all duration-300 hover:cursor-pointer absolute bottom-4 right-5 text-xs text-gray-1/50"
+        className="backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 hover:scale-105 transition-all duration-300 hover:cursor-pointer absolute bottom-4 right-5 text-xs text-gray-1/50"
       >
-        {hideCompletedTasks ? "show" : "hide"} completed tasks
+        {hideCompletedTasks ? (
+          <EyeClosed className="stroke-2 size-3 stroke-gray-1/50" />
+        ) : (
+          <Eye className="stroke-2 size-3 stroke-gray-1/50" />
+        )}{" "}
+        completed tasks
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { Dispatch, SetStateAction, useState } from "react";
-import { Task } from "../types";
+import { Dispatch, SetStateAction } from "react";
+import { Task } from "../types/tasks";
 
 interface CreatedTaskProps {
   task: Task;
@@ -9,15 +9,13 @@ interface CreatedTaskProps {
 }
 
 export function CreatedTask({ task, setTasks }: CreatedTaskProps) {
-  const [isEditing, setIsEditing] = useState(false);
-
   return (
     <motion.div
       layout
       initial={{ x: 100 }}
       animate={{ x: 0 }}
       exit={{ x: -500 }}
-      className="flex items-center gap-2 w-full"
+      className="px-5 flex items-center gap-2 w-full"
     >
       <motion.div
         role="button"
@@ -57,13 +55,9 @@ export function CreatedTask({ task, setTasks }: CreatedTaskProps) {
         <div className="group flex items-center justify-between">
           <input
             value={task.title}
-            disabled={!isEditing}
-            className={`transition-all duration-300 hover:cursor-text py-1 px-2 flex-1 w-full text-sm font-medium text-gray-1 ${
+            className={`outline-none transition-all duration-300 hover:cursor-text py-1 px-2 flex-1 w-full text-sm font-medium text-gray-1 ${
               task.completed && "italic font-normal"
             }`}
-            onClick={() => {
-              setIsEditing(true);
-            }}
           />
           <button
             onClick={() => {

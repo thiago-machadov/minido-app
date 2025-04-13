@@ -9,9 +9,17 @@ pub fn init_macos_menu_extra<R: Runtime>(app: &tauri::AppHandle<R>) -> tauri::Re
     let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
     let menu = Menu::with_items(app, &[&quit_i])?;
 
+    if let Some(window) = app.get_webview_window("main") {
+        let _ = window.hide();
+    }
+
+    let icon_path = app
+        .path()
+        .resolve("icons/tray_icon.png", tauri::path::BaseDirectory::Resource)?;
+
     let _ = TrayIconBuilder::with_id("menu_extra")
-        .icon(app.default_window_icon().unwrap().clone())
         .icon_as_template(true)
+        .icon(tauri::image::Image::from_path(icon_path).unwrap())
         .menu(&menu)
         .show_menu_on_left_click(false)
         .on_menu_event(move |app, event| match event.id.as_ref() {
