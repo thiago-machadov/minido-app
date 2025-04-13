@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    do_things_app_lib::run()
+    minido_app_lib::run()
 }
