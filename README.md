@@ -10,7 +10,7 @@ Follow these steps to clone, build, and install Minido:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Node.js](https://nodejs.org/)
 - [Rust](https://www.rust-lang.org/tools/install)
 
 ### Step by Step
